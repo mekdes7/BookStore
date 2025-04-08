@@ -51,6 +51,9 @@ Average rating display per book
 
 Search books by title, author, or genre
 
+check out the future Book store in design 
+https://www.figma.com/proto/QgwW3h1TNId4O3PiuUsRle/BookStore?node-id=3-5&t=T7hML2TaIE35tdOC-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=323%3A38
+
 
 
 
