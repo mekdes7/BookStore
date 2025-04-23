@@ -12,9 +12,9 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use('/uploads', express.static('uploads')); // Serve static files
+app.use('/uploads', express.static('uploads')); 
 
-// Configure Multer for file uploads
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploads/');
@@ -48,7 +48,7 @@ app.post('/books', upload.single('bookCover'), async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   });
-  // 2. Update GET endpoints to return full URLs
+ 
   app.get('/books', async (req, res) => {
     try {
       const books = await Books.find({});

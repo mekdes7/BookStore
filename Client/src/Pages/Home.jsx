@@ -37,44 +37,47 @@ const Home = () => {
 
   return (
     <>
-      <div className='p-4 bg-transparent h-auto w-[1200px] ml-[50px] flex-col 
-      rounded-lg shadow-lg font-bold text-white'>
-        <div className='flex justify-between items-center'>
-          <button 
-            className={`px-4 py-1 rounded-lg ${
-              showType === 'table' ? 'bg-sky-600' : 'bg-sky-500 hover:bg-sky-600'
-            }`}
-            onClick={() => handleViewTypeChange('table')}
-          >
-            Table
-          </button>
-          <button 
-            className={`px-4 py-1 rounded-lg ${
-              showType === 'card' ? 'bg-sky-600' : 'bg-sky-500 hover:bg-sky-600'
-            }`}
-            onClick={() => handleViewTypeChange('card')}
-          >
-            Card
-          </button>
-        </div>
-        <div className='flex justify-between items-center'>
-          <h1 className='text-3xl my-8'>Books List</h1>
-          <Link to='/books/create'>
-            <span className="flex items-center gap-2 relative">
-              <MdOutlineAddBox className="bg-green-200 text-2xl" />
-              <span className="text-white text-2xl">Add Book</span>
-            </span>
-          </Link>
-        </div>
+      <div className='p-4 bg-transparent w-full max-w-[1200px] mx-auto flex flex-col rounded-lg shadow-lg font-bold text-white'>
+  <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2'>
+    <div className='flex gap-2'>
+      <button 
+        className={`px-4 py-1 rounded-lg ${
+          showType === 'table' ? 'bg-sky-600' : 'bg-sky-500 hover:bg-sky-600'
+        }`}
+        onClick={() => handleViewTypeChange('table')}
+      >
+        Table
+      </button>
+      <button 
+        className={`px-4 py-1 rounded-lg ${
+          showType === 'card' ? 'bg-sky-600' : 'bg-sky-500 hover:bg-sky-600'
+        }`}
+        onClick={() => handleViewTypeChange('card')}
+      >
+        Card
+      </button>
+    </div>
+  </div>
 
-        {loading ? (
-          <Spinner />
-        ) : showType === 'table' ? (
-          <BookTable books={books} />
-        ) : (
-          <BookCard books={books}/>
-        )}
-      </div>
+  <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center mt-6 gap-4'>
+    <h1 className='text-3xl'>Books List</h1>
+    <Link to='/books/create'>
+      <span className="flex items-center gap-2 bg-green-200 px-3 py-2 rounded-lg">
+        <MdOutlineAddBox className="text-2xl text-black" />
+        <span className="text-black text-lg">Add Book</span>
+      </span>
+    </Link>
+  </div>
+
+  {loading ? (
+    <Spinner />
+  ) : showType === 'table' ? (
+    <BookTable books={books} />
+  ) : (
+    <BookCard books={books} />
+  )}
+</div>
+
     </>
   );
 };
